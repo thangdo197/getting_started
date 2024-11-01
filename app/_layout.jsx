@@ -1,43 +1,28 @@
-import React, { Component } from "react";
-import { StyleSheet, TouchableOpacity, Text, View, Image } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-class App extends Component {
-  state = {
-    count: 0,
-  };
-
-  onPress = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={this.onPress}>
-          <Text>Click me</Text>
-        </TouchableOpacity>
-        <View>
-          <Text>You clicked {this.state.count} times</Text>
-        </View>
-      </View>
-    );
-  }
-}
+const Flex = () => {
+  return (
+    <View
+      style={[
+        styles.container,
+        {
+          flexDirection: "row",
+        },
+      ]}
+    >
+      <View style={{ flex: 1, backgroundColor: "red" }}></View>
+      <View style={{ flex: 2, backgroundColor: "blue" }}></View>
+      <View style={{ flex: 3, backgroundColor: "green" }}></View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10,
-    marginBottom: 10,
+    padding: 20,
   },
 });
 
-export default App;
+export default Flex;
