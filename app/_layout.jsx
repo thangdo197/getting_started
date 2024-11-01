@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, Image } from "react-native";
 
 class App extends Component {
   state = {
