@@ -1,28 +1,43 @@
-import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+
+class App extends Component {
+  state = {
+    count: 0,
+  };
+
+  onPress = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={this.onPress}>
+          <Text>Click me</Text>
+        </TouchableOpacity>
+        <View>
+          <Text>You clicked {this.state.count} times</Text>
+        </View>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  center: {
+  container: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
   },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10,
+    marginBottom: 10,
+  },
 });
-
-const Greeting = (props) => {
-  return (
-    <View style={styles.center}>
-      <Text>Hello {props.id}!</Text>
-    </View>
-  );
-};
-
-const App = () => {
-  return (
-    <View style={[styles.center, { top: 50 }]}>
-      <Greeting id="Messi" />
-      <Greeting id="Iniesta" />
-      <Greeting id="Xavi" />
-    </View>
-  );
-};
 
 export default App;
