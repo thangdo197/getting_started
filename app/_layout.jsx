@@ -1,28 +1,11 @@
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Slot, Stack } from "expo-router";
 
-const Flex = () => {
+const RootLayout = () => {
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          flexDirection: "row",
-        },
-      ]}
-    >
-      <View style={{ flex: 1, backgroundColor: "red" }}></View>
-      <View style={{ flex: 2, backgroundColor: "blue" }}></View>
-      <View style={{ flex: 3, backgroundColor: "green" }}></View>
-    </View>
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+    </Stack>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-});
-
-export default Flex;
