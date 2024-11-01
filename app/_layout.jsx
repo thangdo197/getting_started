@@ -1,48 +1,28 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
-const Layout = ({ children }) => {
+const styles = StyleSheet.create({
+  center: {
+    alignItems: "center",
+  },
+});
+
+const Greeting = (props) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>My Application</Text>
-      </View>
-      <View style={styles.mainContent}>{children}</View>
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          &copy; {new Date().getFullYear()} My Application
-        </Text>
-      </View>
+    <View style={styles.center}>
+      <Text>Hello {props.id}!</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    padding: 20,
-    backgroundColor: "#4CAF50",
-  },
-  headerText: {
-    color: "#fff",
-    fontSize: 24,
-    textAlign: "center",
-  },
-  mainContent: {
-    flex: 1,
-    padding: 20,
-    justifyContent: "center",
-  },
-  footer: {
-    padding: 10,
-    backgroundColor: "#333",
-  },
-  footerText: {
-    color: "#fff",
-    textAlign: "center",
-  },
-});
+const App = () => {
+  return (
+    <View style={[styles.center, { top: 50 }]}>
+      <Greeting id="Messi" />
+      <Greeting id="Iniesta" />
+      <Greeting id="Xavi" />
+    </View>
+  );
+};
 
-export default Layout;
+export default App;
